@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model RefillRequest {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  rxNumber  String
+  pickup    String?
+  notes     String?
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String?
+  email     String
+  subject   String?
+  message   String
+  status    String   @default("unread")
+  createdAt DateTime @default(now())
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model DeliverySchedule {
+  id            String   @id @default(cuid())
+  name          String
+  phone         String
+  address       String
+  city          String
+  scheduledDate String
+  scheduledTime String
+  rxNumbers     String?
+  notes         String?
+  status        String   @default("pending")
+  createdAt     DateTime @default(now())
+}
