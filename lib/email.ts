@@ -11,7 +11,7 @@ export async function sendRefillNotification(data: {
   notes?: string | null;
 }) {
   await resend.emails.send({
-    from: 'PharmaCare Rx <onboarding@resend.dev>',
+    from: 'PharmaCare Rx <noreply@pharmacarerxfv.com>',
     to,
     subject: `New Refill Request — Rx# ${data.rxNumber}`,
     html: `
@@ -36,7 +36,7 @@ export async function sendDeliveryNotification(data: {
   notes?: string | null;
 }) {
   await resend.emails.send({
-    from: 'PharmaCare Rx <onboarding@resend.dev>',
+    from: 'PharmaCare Rx <noreply@pharmacarerxfv.com>',
     to,
     subject: `New Delivery Request — ${data.name}`,
     html: `
@@ -60,7 +60,7 @@ export async function sendContactNotification(data: {
   message: string;
 }) {
   await resend.emails.send({
-    from: 'PharmaCare Rx <onboarding@resend.dev>',
+    from: 'PharmaCare Rx <noreply@pharmacarerxfv.com>',
     to,
     subject: `New Message — ${data.subject || 'General Inquiry'}`,
     html: `
